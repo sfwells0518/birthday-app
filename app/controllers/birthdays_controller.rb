@@ -10,4 +10,15 @@ class BirthdaysController < ApplicationController
     render :show
     # render json: { message: "birthday show test" }
   end
+
+  def create
+    @birthday = Birthday.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      date_of_birth: params[:date_of_birth],
+    )
+    @birthday.save
+    render :show
+    # render json: { message: "birthday create test" }
+  end
 end
