@@ -31,4 +31,10 @@ class BirthdaysController < ApplicationController
     @birthday.save
     render :show
   end
+
+  def destroy
+    @birthday = Birthday.find_by(id: params[:id])
+    @birthday.destroy
+    render json: { message: "Birthday has been successfully removed" }
+  end
 end
